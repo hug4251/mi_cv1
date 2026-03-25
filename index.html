@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio de Víctor Hugo Javier Hernández - Estudiante de Ingeniería en Pesquerías">
+    <title>Víctor Hugo Javier Hernández | Ingeniero en Pesquerías</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #3a3a3a;
+            background: linear-gradient(180deg, #f9f5f0 0%, #f4ede3 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(139, 117, 91, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #8b755b;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5a5a5a;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #c9a961;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f9f5f0 0%, #ede3d4 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8em;
+            color: #3a3a3a;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            font-size: 1.2em;
+            color: #8b755b;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #c9a961 0%, #a88a4a 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 169, 97, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #8b755b;
+            border: 2px solid #c9a961;
+        }
+
+        .btn-secondary:hover {
+            background: #f4ede3;
+            transform: translateY(-2px);
+        }
+
+        .profile-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 280px;
+            height: 280px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 10px 40px rgba(139, 117, 91, 0.2);
+            border: 8px solid white;
+            background: linear-gradient(135deg, #d4c5b0 0%, #c9a961 100%);
+        }
+
+        /* About Section */
+        .about {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            color: #3a3a3a;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #c9a961 0%, #8b755b 100%);
+            margin: 1rem auto 0;
+        }
+
+        .about-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(139, 117, 91, 0.1);
+        }
+
+        .about-content p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Research Section */
+        .research {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .research-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(139, 117, 91, 0.1);
+        }
+
+        .research-focus {
+            border-left: 5px solid #c9a961;
+            padding-left: 2rem;
+            margin: 2rem 0;
+        }
+
+        .research-focus h3 {
+            color: #8b755b;
+            margin-bottom: 0.5rem;
+            font-size: 1.3em;
+        }
+
+        .research-focus p {
+            color: #666;
+            font-size: 1.05em;
+        }
+
+        /* Experience Section */
+        .experience {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .exp-card {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(139, 117, 91, 0.1);
+            border-left: 5px solid #c9a961;
+            transition: transform 0.3s ease;
+        }
+
+        .exp-card:hover {
+            transform: translateX(10px);
+        }
+
+        .exp-card h3 {
+            color: #8b755b;
+            margin-bottom: 0.5rem;
+            font-size: 1.4em;
+        }
+
+        .exp-card .company {
+            color: #c9a961;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1em;
+        }
+
+        .exp-card p {
+            color: #666;
+            font-size: 1em;
+            line-height: 1.7;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #f4ede3 0%, #ede3d4 100%);
+            color: #8b755b;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 500;
+            border: 1px solid #d4c5b0;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #8b755b 0%, #6b5a45 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .contact h2 {
+            font-size: 2.2em;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links a {
+            color: #c9a961;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            color: #fff;
+        }
+
+        .footer {
+            background: #3a3a3a;
+            color: #999;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2em;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .profile-pic {
+                width: 200px;
+                height: 200px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="#" class="logo">VHJH</a>
+            <ul class="nav-links">
+                <li><a href="#about">Sobre mí</a></li>
+                <li><a href="#research">Investigación</a></li>
+                <li><a href="#experience">Experiencia</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Víctor Hugo Javier Hernández</h1>
+                <p>Ingeniero en Pesquerías</p>
+                <p class="subtitle">Especializado en acuicultura y conservación de especies marinas costeras</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Contacto</a>
+                    <a href="#research" class="btn btn-secondary">Mi Investigación</a>
+                </div>
+            </div>
+            <div class="profile-image">
+                <img src="https://via.placeholder.com/280x280/c9a961/8b755b?text=Mi+Foto" alt="Víctor Hugo Javier Hernández" class="profile-pic">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">Sobre Mí</h2>
+        <div class="about-content">
+            <p>
+                Soy estudiante de <strong>Ingeniería en Pesquerías</strong> en la <strong>Universidad Autónoma de Baja California Sur</strong>, en el departamento de Ciencias del Mar y la Tierra. Mi perfil combina el estudio y conocimiento en las pesquerías con un enfoque profundo en la sostenibilidad marina.
+            </p>
+            <p>
+                Mi pasión se centra en <strong>preservar y cuidar a las especies marinas y costeras</strong>, particularmente en ecosistemas específicos como el Estero del Dátil. Creo que la ingeniería en pesquerías es clave para garantizar la viabilidad ambiental y económica de nuestras comunidades costeras.
+            </p>
+            <p>
+                Con una sólida formación académica y experiencia práctica en cultivo marino, estoy comprometido con el desarrollo de prácticas responsables y sustentables en la acuicultura.
+            </p>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="research" id="research">
+        <h2 class="section-title">Mi Investigación</h2>
+        <div class="research-content">
+            <div class="research-focus">
+                <h3>🦪 Enfoque Principal</h3>
+                <p>
+                    Mi investigación se centra en el <strong>crecimiento del ostión y el verdillo en el Estero del Dátil</strong>. Estudio los factores ambientales y biológicos que influyen en el desarrollo de estas especies, con el objetivo de optimizar las prácticas de cultivo y conservación.
+                </p>
+            </div>
+            <div class="research-focus">
+                <h3>🌊 Área de Estudio</h3>
+                <p>
+                    El <strong>Estero del Dátil</strong> es un ecosistema costero de importancia ecológica, donde ejecuto mis investigaciones sobre acuicultura sostenible y manejo de recursos marinos. Esta zona es crucial para la reproducción y crecimiento de moluscos bivalvos.
+                </p>
+            </div>
+            <div class="research-focus">
+                <h3>🎯 Objetivos</h3>
+                <p>
+                    Contribuir al conocimiento científico sobre acuicultura local, desarrollar prácticas sostenibles, y ofrecer soluciones innovadoras que beneficien tanto al sector productor como al ambiente marino.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <h2 class="section-title">Experiencia</h2>
+        
+        <div class="exp-card">
+            <h3>Operador de Cultivo</h3>
+            <div class="company">Santo Mar</div>
+            <p>
+                Experiencia práctica en operación de cultivos marinos, especializado en:
+            </p>
+            <div class="skills">
+                <span class="skill-tag">Cultivo de Ostión</span>
+                <span class="skill-tag">Cría Marina</span>
+                <span class="skill-tag">Genética Aplicada</span>
+                <span class="skill-tag">Control de Calidad</span>
+                <span class="skill-tag">Venta y Distribución</span>
+            </div>
+            <p style="margin-top: 1.5rem;">
+                En Santo Mar participé en todas las fases del cultivo de ostión, desde la reproducción hasta la distribución comercial. Adquirí conocimientos prácticos en genética aplicada al mejoramiento de cepas y control de variables ambientales críticas.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Ponte en Contacto</h2>
+        <div class="contact-links">
+            <a href="mailto:tu.email@example.com">📧 Email</a>
+            <a href="https://linkedin.com" target="_blank">💼 LinkedIn</a>
+            <a href="https://github.com" target="_blank">💻 GitHub</a>
+            <a href="https://wa.me/+526241234567" target="_blank">📱 WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Víctor Hugo Javier Hernández. Ingeniero en Pesquerías | Universidad Autónoma de Baja California Sur</p>
+    </footer>
+</body>
+</html>
